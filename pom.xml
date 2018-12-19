@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- springCloud 依赖于springBoot实现微服务，springBoot默认集成springMVC组建，
+        springCloud使用springMVC编写微服务http接口，微服务通讯接口(http+json)
+        所以说springBoot是为微服务作基础，但不代表springBoot就是微服务框架，-->
+    <groupId>com.zttc.itat</groupId>
+    <artifactId>springboot2.0-helloworld</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--<packaging>war</packaging>-->
+
+    <parent>
+        <!--整合第三方框架的依赖信息 (各种依赖)-->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+    </parent>
+
+    <!-- 快速开发原理（Maven子父依赖关系）springBoot对常用依赖信息进行封装-->
+    <dependencies>
+        <dependency>
+            <!--是springBoot整合springMVC的web组件,实现原理：Maven依赖集成关系
+                相当于把第三方一些常用的Maven依赖信息，在parent中已经封装好了，只需要使用springBoot提供的依赖信息关联整合的jar包-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 子类已经继承了父类已经存在的版本号，因此不需要填写-->
+        </dependency>
+        <!--SpringBoot整合FreeMarker 资源-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!--SpringBoot整合jsp页面必须导入外部tomcatServer jar GAV支持-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <!--springBoot日志处理支持-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j</artifactId>
+            <version>1.3.8.RELEASE</version>
+        </dependency>
+        <!--springBoot Aop支持（协助日志处理）-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!--代码简化插件lombok,springBoot很好的支持了这个插件，lombok底层使用字节码技术，修改字节码文件，生成get set 方法-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!--Mysql依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- springBoot整合myBatis支持依赖 -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+    </dependencies>
+</project>
